@@ -1,0 +1,69 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   9               		.text
+  10               	.Ltext0:
+  69               	.global	main
+  71               	main:
+   1:main.c        **** 
+   2:main.c        **** /************************************************* Program Title ******************
+   3:main.c        **** 
+   4:main.c        **** * Program to send binary data (00001010) to PORT B & Glow LED1 & LED3
+   5:main.c        **** 
+   6:main.c        **** ************************************************** Company/HW/SW etc Details ******
+   7:main.c        **** 
+   8:main.c        **** COPYRIGHT(C)Technophilia Systems
+   9:main.c        **** Date:...............10th AUG 2013
+  10:main.c        **** Author:.............Technophilia R&D Team
+  11:main.c        **** Organization:.......Technophilia Syestems
+  12:main.c        **** Target System:......AVR Devlopment Board S/N-118010
+  13:main.c        **** Manufacturer:.......Technophilia Syestems
+  14:main.c        **** Microcontroller:....ATmega-8
+  15:main.c        **** Clock:..............12mhz
+  16:main.c        **** Compiler Used:...........WinAVR-20100110
+  17:main.c        **** 
+  18:main.c        **** ************************************************** Connection Details *************
+  19:main.c        **** 
+  20:main.c        **** SCL-PC5
+  21:main.c        **** SDA-PC4
+  22:main.c        **** 
+  23:main.c        **** ***************************************************Program ***********************/
+  24:main.c        **** 
+  25:main.c        **** #include<avr/io.h>				//basic header file for avr microcontrollers
+  26:main.c        **** 
+  27:main.c        **** int main(void)
+  28:main.c        **** {
+  72               	n, @function
+  73               	main:
+  75               	.LM0:
+  76               	.LFBB1:
+  29:main.c        **** 	
+  30:main.c        **** 	DDRB=0b00001111;			//data direction declaration of PORTB lower pins as output.	
+  77               	1
+  78               	.LM0:
+  79 0000 8FE0      	.LFBB1:
+  80 0002 87BB      	/* prologue: function */
+  31:main.c        **** 	PORTB=0b00001010;			//sending binary data (00001010) to PORTB
+  81               	e: function */
+  82               	/* frame size = 0 */
+  84 0006 88BB      	.LM1:
+  85               		ldi r24,lo8(15)
+  86 0008 00C0      		out 55-32,r24
+  88               	.LM2:
+  89               		ldi r24,lo8(10)
+  90               		out 56-32,r24
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\AMEY\AppData\Local\Temp/ccknZS0O.s:2      *ABS*:0000003f __SREG__
+C:\Users\AMEY\AppData\Local\Temp/ccknZS0O.s:3      *ABS*:0000003e __SP_H__
+C:\Users\AMEY\AppData\Local\Temp/ccknZS0O.s:4      *ABS*:0000003d __SP_L__
+C:\Users\AMEY\AppData\Local\Temp/ccknZS0O.s:5      *ABS*:00000034 __CCP__
+C:\Users\AMEY\AppData\Local\Temp/ccknZS0O.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\AMEY\AppData\Local\Temp/ccknZS0O.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\AMEY\AppData\Local\Temp/ccknZS0O.s:71     .text:00000000 main
+
+NO UNDEFINED SYMBOLS
