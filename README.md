@@ -19,6 +19,3 @@ Code for the Following Tests:-
 
 9. Input Switch Controlled Servo
 
-Board Interfacting Test 
-
-Contains Header and Make file required.
