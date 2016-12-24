@@ -1,0 +1,108 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   9               		.text
+  10               	.Ltext0:
+  69               	.global	main
+  71               	main:
+   1:main.c        **** /************************************************** Program Title ******************
+   2:main.c        **** 
+   3:main.c        **** Taking Input from Switch with Debounce 
+   4:main.c        **** 
+   5:main.c        **** ************************************************** Company/HW/SW etc Details ******
+   6:main.c        **** 
+   7:main.c        **** COPYRIGHT(C)Technophilia Systems
+   8:main.c        **** Date:...............10th AUG 2013
+   9:main.c        **** Author:.............Technophilia R&D Team
+  10:main.c        **** Organization:.......Technophilia Syestems
+  11:main.c        **** Target System:......AVR Devlopment Board S/N-118010
+  12:main.c        **** Manufacturer:.......Technophilia Syestems
+  13:main.c        **** Microcontroller:....ATmega-8
+  14:main.c        **** Clock:..............12mhz
+  15:main.c        **** Compiler Used:...........WinAVR-20100110
+  16:main.c        **** 
+  17:main.c        **** ************************************************** Connection Details *************
+  18:main.c        **** 
+  19:main.c        **** PORTC 0   - Switch (Gives Low Input to UC)
+  20:main.c        **** PORTB 0-3 - LED (Active High)
+  21:main.c        **** PORTC 0   - Switch (Gives Low Input to UC)
+  22:main.c        **** PORTB 0-3 - LED (Active High)
+  23:main.c        **** 
+  24:main.c        **** ***************************************************Program ***********************/
+  25:main.c        **** 
+  26:main.c        **** #include<avr/io.h>				//This is the header for AVR Microcontroller.
+  27:main.c        **** 
+  28:main.c        **** int main(void)
+  29:main.c        **** {
+  72               	,0,0,main
+  73               	.global	main
+  75               	main:
+  30:main.c        **** 	DDRC=0x00;					// PORTC data direction configuration as input port.
+  77               		main, @function
+  78               	main:
+  31:main.c        **** 	PORTC=0x01;					// PORTC lowest bit initialization as high (Pull-up mode)
+  80               		main, @function
+  81               	main:
+  83 0004 85BB      	.LM0:
+  32:main.c        **** 		
+  33:main.c        **** 	DDRB=0x0F;					// PORTB lower nibble data direction configuration as output port.
+  84               	@function
+  85               	main:
+  87 0008 87BB      	.LM0:
+  34:main.c        **** 	PORTB=0x00;					// Initial value to PORTB is 00
+  88               	@function
+  89               	main:
+  91 000c 80E0      	.LM0:
+  92               	.LFBB1:
+  93 000e 982F      	/* prologue: function */
+  94               	/* frame size = 0 */
+  35:main.c        **** 	
+  36:main.c        **** 	unsigned char i=0;
+  37:main.c        **** 	
+  38:main.c        **** 	while(1)
+  39:main.c        **** 	{
+  40:main.c        **** 		
+  41:main.c        **** 		if((PINC & 0x01)==0x00)			//checking for switch press at s0. 
+  95               	
+  96               	/* prologue: function */
+  97 0010 9899      	/* frame size = 0 */
+  42:main.c        **** 		{
+  43:main.c        **** 			i++;	
+  99               	frame size = 0 */
+ 101 0014 892F      	.LM1:
+ 102 0016 8F5F      		out 52-32,__zero_reg__
+  44:main.c        **** 			PORTB=i;
+ 103               	0,.LM1-.LFBB1
+ 104               	.LM1:
+ 105 0018 88BB      		out 52-32,__zero_reg__
+  45:main.c        **** 			while((PINC & 0x01)==0x00); //wait till switch s0 release
+ 107               	2,__zero_reg__
+ 109 001a 989B      	.LM2:
+ 110 001c 00C0      		ldi r24,lo8(1)
+ 111 001e 90E0      		out 53-32,r24
+  46:main.c        **** 			if(i>15)
+ 112               	B1
+ 113               	.LM2:
+ 114 0020 8031      		ldi r24,lo8(1)
+ 115 0022 00F0      		out 53-32,r24
+ 117               	.LM3:
+ 118               		ldi r24,lo8(15)
+ 119               		out 55-32,r24
+ 121               	.LM4:
+ 122               		out 56-32,__zero_reg__
+ 123               		ldi r24,lo8(0)
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\AMEY\AppData\Local\Temp/ccCe07i2.s:2      *ABS*:0000003f __SREG__
+C:\Users\AMEY\AppData\Local\Temp/ccCe07i2.s:3      *ABS*:0000003e __SP_H__
+C:\Users\AMEY\AppData\Local\Temp/ccCe07i2.s:4      *ABS*:0000003d __SP_L__
+C:\Users\AMEY\AppData\Local\Temp/ccCe07i2.s:5      *ABS*:00000034 __CCP__
+C:\Users\AMEY\AppData\Local\Temp/ccCe07i2.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\AMEY\AppData\Local\Temp/ccCe07i2.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\AMEY\AppData\Local\Temp/ccCe07i2.s:71     .text:00000000 main
+
+NO UNDEFINED SYMBOLS

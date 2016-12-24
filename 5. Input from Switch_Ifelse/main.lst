@@ -1,0 +1,88 @@
+   1               		.file	"main.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   9               		.text
+  10               	.Ltext0:
+  69               	.global	main
+  71               	main:
+   1:main.c        **** /************************************************** Program Title ******************
+   2:main.c        **** 
+   3:main.c        **** Taking input from switch & glowing LED
+   4:main.c        **** 
+   5:main.c        **** ************************************************** Company/HW/SW etc Details ******
+   6:main.c        **** 
+   7:main.c        **** COPYRIGHT(C)Technophilia Systems
+   8:main.c        **** Date:...............10th AUG 2013
+   9:main.c        **** Author:.............Technophilia R&D Team
+  10:main.c        **** Organization:.......Technophilia Syestems
+  11:main.c        **** Target System:......AVR Devlopment Board S/N-118010
+  12:main.c        **** Manufacturer:.......Technophilia Syestems
+  13:main.c        **** Microcontroller:....ATmega-8
+  14:main.c        **** Clock:..............12mhz
+  15:main.c        **** Compiler Used:...........WinAVR-20100110
+  16:main.c        **** 
+  17:main.c        **** ************************************************** Connection Details *************
+  18:main.c        **** 
+  19:main.c        **** PORTC 0   - Switch (Gives Low Input to UC)
+  20:main.c        **** PORTB 0-3 - LED (Active High)
+  21:main.c        **** ***************************************************Program ***********************/
+  22:main.c        **** 
+  23:main.c        **** 
+  24:main.c        **** #include<avr/io.h>				//This is the header for AVR Microcontroller.
+  25:main.c        **** 
+  26:main.c        **** int main(void)
+  27:main.c        **** {
+  72               	ain
+  74               	main:
+  76               	.LM0:
+  28:main.c        **** 	DDRC=0x00;					// PORTC data direction configuration as input port.
+  77               	tabn	68,0,27,.LM0-.LFBB1
+  78               	.LM0:
+  79 0000 14BA      	.LFBB1:
+  29:main.c        **** 	PORTC=0x01;					// PORTC lowest bit initialization as high (Pull-up mode)
+  80               	,27,.LM0-.LFBB1
+  81               	.LM0:
+  82 0002 81E0      	.LFBB1:
+  83 0004 85BB      	/* prologue: function */
+  30:main.c        **** 		
+  31:main.c        **** 	DDRB=0x0F;					// PORTB lower nibble data direction configuration as output port.
+  84               	B1:
+  85               	/* prologue: function */
+  86 0006 8FE0      	/* frame size = 0 */
+  88               	.LM1:
+  32:main.c        **** 	PORTB=0x00;					// Initial value to PORTB is 00
+  89               	68,0,28,.LM1-.LFBB1
+  90               	.LM1:
+  91 000a 18BA      		out 52-32,__zero_reg__
+  33:main.c        **** 	
+  34:main.c        **** 	
+  35:main.c        **** 	while(1)
+  36:main.c        **** 	{		
+  37:main.c        **** 		if((PINC & 0x01)==0x00)	//checking for switch press at s0. 
+  93               	abn	68,0,29,.LM2-.LFBB1
+  94               	.LM2:
+  95 000c 9899      		ldi r24,lo8(1)
+  96 000e 00C0      		out 53-32,r24
+  38:main.c        **** 			{
+  39:main.c        **** 				PORTB=0x0F;			//glow All four LED
+  97               	o8(1)
+  98               		out 53-32,r24
+ 100 0012 00C0      	.LM3:
+ 101               		ldi r24,lo8(15)
+ 102               		out 55-32,r24
+ 103               	.L6:
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\AMEY\AppData\Local\Temp/ccrAV3ni.s:2      *ABS*:0000003f __SREG__
+C:\Users\AMEY\AppData\Local\Temp/ccrAV3ni.s:3      *ABS*:0000003e __SP_H__
+C:\Users\AMEY\AppData\Local\Temp/ccrAV3ni.s:4      *ABS*:0000003d __SP_L__
+C:\Users\AMEY\AppData\Local\Temp/ccrAV3ni.s:5      *ABS*:00000034 __CCP__
+C:\Users\AMEY\AppData\Local\Temp/ccrAV3ni.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\AMEY\AppData\Local\Temp/ccrAV3ni.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\AMEY\AppData\Local\Temp/ccrAV3ni.s:71     .text:00000000 main
+
+NO UNDEFINED SYMBOLS
